@@ -13,6 +13,7 @@
 #include <cassert>
 #include "sqlhelper.h"
 #include "SQLParser.h"
+#include "heap_storage.h"
 using namespace std;
 using namespace hsql;
 
@@ -281,6 +282,10 @@ int main(int argc, char **argv)
 		if (sqlcmd == "quit") {
 			break;
 		}
+		if (sqlcmd == "test") {
+            cout << "test_heap_storage: " << (test_heap_storage() ? "ok" : "failed") << endl;
+            continue;
+        }
 		if (sqlcmd.length() < 1) {
 			continue;
 		}
